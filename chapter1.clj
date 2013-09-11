@@ -10,6 +10,13 @@
 (def sin (fn [x] (Math/sin x))) ; encapsulate sin an cos
 (def cos (fn [x] (Math/cos x))) ; so they can be use as first order functions
 
+
+(defn gcd [a b]
+  (loop [b b r (mod a b)]
+    (if (zero? r) b
+        (recur r (mod b r)))))
+
+
 (defn sum
   "Summation from a to b of f(x) where x is the term and f is the next fn"
   [term a next b]
